@@ -1,0 +1,72 @@
+<article class="container">
+	<section class="row">
+		<div  ng-controller="listController">
+
+
+<!-- cerate new Form -->
+<div ng-show="showDetails" class="form-animation bg-color-white z-depth-4 col s12 Studyform">
+	<div class="col s11">
+		<h4>Create Study</h4>
+		<h6>All fields are required</h6>
+	</div>
+	<div class="col s1 right-align">
+		<a ng-click="showDetails = ! showDetails" class=" position-button"><i class="material-icons">close</i></a>
+	</div>
+<!-- form starts -->
+	<form name="addStudy" novalidate ng-submit="addStudy();" >
+
+	<input type="text" placeholder="Name of study" ng-model="newstudy.name" ng-required="true"/>
+	
+	<textarea type="text" placeholder="Study Description" ng-model="newstudy.desc" ng-required="true"></textarea>
+		 
+	<select ng-model="Selectednewstudy" ng-required="true">
+   		<option value="" disabled selected>Choose study status</option>
+       	<option ng-repeat="item in items" value="{{item}}">{{item}}</option>
+   	</select>
+
+	<input ng-disabled="addStudy.$ng-invalid" class="btn waves-effect waves-light deep-orange lighten-2 " type="submit" value="Create Study">
+<!-- Form ends -->
+	</form>
+<!-- Create new Form ends -->
+</div>
+
+<!-- Search bar -->
+	<div  class="white-space col s8">
+        <label class="custom-label" for="icon_prefix">Search</label>
+        <input ng-model="search" placeholder="Search here..." id="icon_prefix" type="text" class="validate">
+	</div>
+	<div style="margin-top: 50px;" class="white-space col s4">
+    	<button class="btn waves-effect waves-light deep-orange lighten-2 " ng-click="order='status'">Sort by status</button>
+		<button  class="btn waves-effect waves-light deep-orange lighten-2 " ng-click="order='name'">Sort by Name</button>
+    </div>
+<!-- Search bar Ends -->
+	
+<!-- Cases -->
+<div id="" class="study-list col s6"  ng-repeat="x in trialinfo | orderBy: order | limitTo: limit | filter: search" >
+	<div   class="z-depth-4 white-space box-wrapper content">
+		<div class="col s9">
+			<h4 >{{ x.name |  capitalizeWord }}</h4>
+			<p class="content-font"> Status: {{ x.status |  capitalizeWord }}</p>
+			<p class="content-font">{{ x.description | limitTo: 150 }}</p>
+		</div>
+		<div  class="right-align col s3">
+			<a href="#/details/{{ x.id }}" class=" position-button"><i class="Medium material-icons">info</i></a>
+			<a href="#/details/{{ x.id }}" class=" position-button"><i class="Medium material-icons">delete</i></a>
+		</div>
+	</div> 	
+</div>
+<!-- Cases ends -->
+
+<!-- Create New -->
+<div class=" study-list col s6">
+	<div class="z-depth-4 white-space box-wrapper content-new">	
+		<h4 class="width-max center-align">Create new
+		<a ng-click="showDetails = ! showDetails" class="center-align z-depth-1 btn-floating deep-orange lighten-2"><i class="material-icons">add</i></a>
+		</h4>			
+	</div> 
+</div>	
+<!-- Create New Ends -->
+
+</div>
+</section>
+</article>

@@ -1,0 +1,45 @@
+/* Helpers */
+.box-wrapper{
+	padding:5px !important;
+}
+.create-icon{
+	font-size:2em;
+}
+
+.white-space{
+margin-top:30px;
+}
+.content-new{
+	background-color: #eee;
+	height: 20vh;
+	
+	border:2px dotted black;
+}
+
+.content{
+	background-color: #eee;
+	height: 20vh;
+	border:1px solid black;
+	border-radius: 2px;
+}
+.s5{
+	margin: 20px 70px;
+}
+
+nav{
+	background-color: #ff8a65;
+}
+
+.position-button{
+	margin-top:30%;
+	color: rgb(151, 151, 151);
+	text-align: right;
+	transition: 0.5s all;
+}
+.position-button:hover{
+	    color: black;
+}
+
+
+
+

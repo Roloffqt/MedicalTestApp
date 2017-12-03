@@ -1,0 +1,91 @@
+<article class="container">
+<section class="row">
+<div class="" ng-controller="detailController">
+
+<!-- edit study form -->
+<div ng-show="showEdit" class="form-animation bg-color-white  z-depth-4
+Studyform white-space col s12" style="border: 1px solid black; padding:10px;">
+	<div class="col s11">
+		<h4>Edit study</h4>
+	</div>
+	<div class="col s1 right-align">
+		<a ng-click="showEdit = ! showEdit" class=" position-button"><i class="material-icons">close</i></a>
+	</div>
+
+		<form novalidate style="margin-top:70px;" ng-submit="editStudy()" >
+			<label>Study Name</label>
+			<input type="text" ng-model="trialinfo.name" ng-required="true" />
+			<label>Study Description</label>
+			<input type="text" placeholder="desc" ng-model="trialinfo.description" ng-required="true"/>
+		<select ng-model="Selectednewstudy" ng-required="true">
+        	<option ng-repeat="item in items" value="{{item}}">{{item}}</option>
+      	</select>
+			<input class="btn waves-effect waves-light deep-orange lighten-2 " type="submit" value="save ">
+		</form>
+</div>
+<!-- edit study form ends -->
+
+<!-- Details tab -->
+   	
+<div style="float:right;" class=" col s6 white-space">
+   	<a ng-click="showDetails = ! showDetails" class=" btn waves-effect waves-light deep-orange lighten-2">Add new Subject</a>
+	<button class="btn waves-effect waves-light deep-orange lighten-2 " ng-click="order='date'">Sort by date</button>
+</div>
+<div style="float:right;" class=" white-space  col s6">
+		<a ng-click="showEdit = ! showEdit" class="color-white btn waves-effect waves-light deep-orange lighten-2 " style="color: black;">Edit This study</a>
+   	</div>
+
+
+
+<div class="bg-color-white">
+	<div class="col s6 white-space">
+		<h4>Details</h4>
+		<h6>Study Name:</h6><h4 class="content-font">{{ trialinfo.name |  capitalizeWord }}</h4>
+		<h6>Study Status:</h6><h5 class="content-font">{{ trialinfo.status |  capitalizeWord }}</h5>
+		<h6>Study Description:</h6><h6 class="content-font">{{ trialinfo.description }}</h6>
+	</div>
+<!-- Detailstab-end -->
+<!-- subject tab -->
+<div  class="white-space  col s6">
+
+	<h4>Subjects</h4><h5>Total subjects : <span style="font-weight: bolder">{{ getTotal();}}</span></h5>
+	
+<div ng-show="showDetails" class="form-animation bg-color-white white-space col s12" style="border: 1px solid black; padding:10px;">
+		<div class="col s11">
+		<h4>Add new Subject</h4>
+	</div>
+	<div class="col s1 right-align">
+		<a ng-click="showDetails = ! showDetails" class="position-button"><i class="material-icons">close</i></a>
+	</div>
+	<form name="addSubject" novalidate ng-submit="addSubject()" >
+			<input type="text" placeholder="Name" ng-required="true" ng-model="newsubject.name"/>
+			<input class="btn waves-effect waves-light deep-orange lighten-2 " type="submit" ng-disabled="addSubject.$invalid" value="add New Subject">
+	</form>
+</div>
+<div  class="white-space col s9">
+        <label class="custom-label" for="icon_prefix">Search</label>
+        <input ng-model="search" placeholder="Search here..." id="icon_prefix" type="text" class="validate">
+	</div>
+<table class=" responsive-table ">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>created</th>
+				</tr>
+			</thead>
+		
+			<tbody>
+				<tr ng-repeat="subject in trialinfo.subjects | orderBy: order | filter: search ">
+					<td class="content-font">{{ subject.name |  capitalizeWord }}</td>
+					<td class="content-font"> {{subject.created | date:'yyyy-dd-MM h:mm:ss'}}</td>
+				</tr>
+			</tbody>
+		</table>
+</div>	
+</div>
+</div>
+
+</section>
+</article>
+	
+           

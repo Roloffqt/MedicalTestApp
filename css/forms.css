@@ -1,0 +1,76 @@
+/* Custom form  */
+.custom-label{
+	    font-size: 2rem !important;
+    color: black !important;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #ff8a65 !important;;
+}
+[type="checkbox"]:checked+label:before {
+   
+    border-right: 2px solid #ff8a65 !important;
+    border-bottom: 2px solid #ff8a65 !important;
+}
+[type="checkbox"]:not(:checked):disabled+label:before {
+    border: none;
+    background-color: #ff8a65;
+}
+
+ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    border-bottom: 1px solid black;
+ }
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ff8a65;
+    -webkit-box-shadow: 0 1px 0 0 #ff8a65;
+    box-shadow: 0 1px 0 0 #ff8a65;
+}
+
+.form-animation textarea{
+height:200px;
+resize: none !important;
+border: 1px solid black;
+}
+/* Create/edit form */
+.form-animation{
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s; 
+}
+.form-animation.ng-hide{
+        transform: translateX(30px);
+ opacity:0;
+  /* transform: scale(0.8); */
+}
+
+.form-animation.ng-add.ng-add-active{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.Studyform{
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px !important;
+
+    margin: 50px 0 0 5px !important;
+    padding: 20px !important;
+
+}
+.Studyform>h4{
+    font-size: 30px;
+}
+
+input.ng-touched.ng-invalid {
+border-bottom: 2px solid red !important;
+    border-radius: 2px;
+    
+}
+textarea.ng-touched.ng-invalid{
+   border: 2px solid red !important;
+    border-radius: 2px;
+ 
+}
+
+input[disabled="disabled"]{
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+}
